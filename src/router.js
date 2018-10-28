@@ -1,14 +1,14 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import { routerRedux, Route, Switch, Redirect } from 'dva/router';
+import AppLayout from './routes/AppLayout';
+
+const { ConnectedRouter } = routerRedux;
 
 function RouterConfig({ history }) {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={IndexPage} />
-      </Switch>
-    </Router>
+    <ConnectedRouter history={history}>
+      <Route path="/" component={AppLayout} />
+    </ConnectedRouter>
   );
 }
 
