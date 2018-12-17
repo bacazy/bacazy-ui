@@ -1,17 +1,23 @@
 import React from 'react';
 import BasePage from './BasePage';
-import { BrowserRouter, Switch, Route, Redirect } from 'dva/router';
+import { Switch, Route, Redirect } from 'dva/router';
 import { Layout } from 'antd';
-import HomePage from './home/HomePage';
+
 import SideBarView from './layout/sidebar/SideBarView';
 import HeaderView from './layout/header/HeaderView';
 import FrontPage from './front/FrontPage';
+// import HomePage from './home/HomePage';
+import Loadable from 'react-loadable';
+import Loading from '../components/Loading';
 
+const HomePage = Loadable({
+    loader: () => import('./home/HomePage'),
+    loading: Loading
+})
 
 class AppLayout extends BasePage {
     constructor() {
         super();
-
     }
 
     render() {

@@ -46,7 +46,7 @@ class MultiSelect extends React.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-
+        return true;
     }
 
     onOptionClick = (value) => {

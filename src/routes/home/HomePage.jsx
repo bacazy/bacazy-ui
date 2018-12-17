@@ -9,6 +9,9 @@ class HomePage extends BasePage {
     render(){
         return (
             <div className="home-view">
+                <div>
+                    Home Page
+                </div>
                 <main>
                     <Switch>
                         <Route path="/select" component={MultiSelectPage}/>
