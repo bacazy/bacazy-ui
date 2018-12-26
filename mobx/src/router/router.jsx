@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { Router,HashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { renderRoutes } from './renderRoutes';
 
 const routes = [
