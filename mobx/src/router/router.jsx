@@ -26,7 +26,6 @@ class AppRouter extends Component {
     
     render() {
         let _r = renderRoutes("",routes);
-        console.log(_r);
         return (
             <HashRouter>
                 {

@@ -1,36 +1,50 @@
 
 import React from 'react';
 import { Menu, Icon } from 'antd';
+import { inject } from '../utils/inject';
+import menu from './Menu';
+import {observer } from 'mobx-react';
 
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
+@inject({menu: menu})
+@observer
 class SideMenu extends React.Component {
-    render() {
-        return (
 
+    componentDidMount = () => {
+      this.props.menu.updateMenu();
+    }
+
+    render() {
+        const {menu} = this.props.menu;
+        return (
             <Menu
                 theme="light"
-                style={{ width: 200, minHeight:"100vh" }}
+                style={{ width: 200, height:"100vh" }}
                 defaultOpenKeys={['sub1']}
                 mode="inline"
             >
-                <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-                    <Menu.Item key="1">Option 1</Menu.Item>
-                    <Menu.Item key="2">Option 2</Menu.Item>
-                    <Menu.Item key="3">Option 3</Menu.Item>
-                    <Menu.Item key="4">Option 4</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigtion Two</span></span>}>
-                    <Menu.Item key="5">Option 5</Menu.Item>
-                    <Menu.Item key="6">Option 6</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-                    <Menu.Item key="9">Option 9</Menu.Item>
-                    <Menu.Item key="10">Option 10</Menu.Item>
-                    <Menu.Item key="11">Option 11</Menu.Item>
-                    <Menu.Item key="12">Option 12</Menu.Item>
-                </SubMenu>
+                {
+                    menu.map( m => {
+                        if(m.children){
+                            return (
+                                <SubMenu key={menu.key} title={<span><Icon type={menu.icon}></Icon>{menu.title}</span>}>
+                                    {
+                                        m.children.map(e => {
+                                            return (
+                                                <Menu.Item key={e.key}>{e.title}</Menu.Item>
+                                            )
+                                        })
+                                    }
+                                </SubMenu>
+                            )
+                        }else{
+                            return (
+                                <Menu.Item key={m.key}><Icon type={m.icon}></Icon>{m.title}</Menu.Item>
+                            )
+                        }
+                    })
+                }
             </Menu>
         )
     }

@@ -33,15 +33,13 @@ module.exports = {
                             cacheDirectory: true,
                             presets: ["@babel/preset-env","@babel/preset-react"],
                             plugins: [
-                                ["@babel/plugin-proposal-decorators", {
-                                    legacy: true
-                                }],
+                                ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                                ["@babel/plugin-proposal-class-properties", { "loose" : true }],
                                 "babel-plugin-add-module-exports",
                                 "@babel/plugin-syntax-dynamic-import",
                                 ['import', {
                                     libraryName: 'antd', libraryDirectory: 'es', style: 'css' 
-                                }],
-                                "@babel/plugin-proposal-class-properties"
+                                }]
                             ]
                         }
                     }

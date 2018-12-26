@@ -31,8 +31,8 @@ module.exports = {
             chunks: "all",
             minSize: 30000,
             minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
+            maxAsyncRequests: 10,
+            maxInitialRequests: 10,
             automaticNameDelimiter: '~',
             name: true,
             cacheGroups: {
@@ -44,7 +44,8 @@ module.exports = {
                     minChunks: 2,
                     priority: -20,
                     reuseExistingChunk: true
-                }
+                },
+                common: /components/
             }
         },
 

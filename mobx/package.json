@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env BRANCH=dev webpack-dev-server --color --progress",
-    "build:prod": "cross-env BRANCH=prod webpack",
-    "build:analyzer": "cross-env BRANCH=analyzer webpack",
+    "build": "cross-env BRANCH=prod webpack --color --progress",
+    "bundle": "cross-env BRANCH=analyzer webpack --color --progress",
     "postbuild": "ls -hlsS dist/*"
   },
   "keywords": [],
