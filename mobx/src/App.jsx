@@ -14,14 +14,9 @@ class App extends React.Component {
                 </Header>
                 <Content className="full-height">
                     <Layout className="full-height">
-                        <Sider>
-                            <SideMenu/>
-                        </Sider>
-                        <Content>
                             {
                                 this.props.children
                             }
-                        </Content>
                         <Footer>
                         
                         </Footer>   

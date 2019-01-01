@@ -7,7 +7,7 @@ class Menu {
     menu = [];
 
     @observable 
-    selectKey = "";
+    selectKey = "";    
     
     @action 
     updateMenu(){
@@ -19,10 +19,10 @@ class Menu {
                 icon: 'home'
             },
             {
-                url: '/table',
-                title: '表格',
+                url: '/map',
+                title: '地图',
                 key: 'table',
-                icon: 'home'
+                icon: 'tags'
             }
         ]
     }

@@ -15,6 +15,11 @@ const routes = [
                 component: import('./../routes/home/HomePage')
             },
             {
+                path: 'map',
+                exact: true,
+                component: import('./../routes/map/MapPage')
+            },
+            {
                 redirect: true,
                 to: '/home'
             }
